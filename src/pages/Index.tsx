@@ -54,11 +54,16 @@ const Index = () => {
         </main>
         
         {/* Footer */}
-        <footer className="mt-12 text-center">
-          <p className="text-xs text-muted-foreground/50 tracking-widest">
-            [ SECURE • LOCAL • ENCRYPTED ]
-          </p>
-        </footer>
+        <footer className="mt-12 text-center space-y-2">
+        <p className="text-xs text-muted-foreground/50 tracking-widest">
+          [ SECURE • LOCAL • ENCRYPTED ]
+        </p>
+
+  <p className="text-[10px] text-muted-foreground/40 tracking-wide">
+    © 2026 Ankit Chakrabortty. All rights reserved.
+  </p>
+</footer>
+
       </div>
     </div>
   );
