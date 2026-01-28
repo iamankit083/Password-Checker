@@ -59,8 +59,8 @@ const Index = () => {
           [ SECURE • LOCAL • ENCRYPTED ]
         </p>
 
-  <p className="text-[10px] text-muted-foreground/40 tracking-wide">
-    © 2026 Ankit Chakrabortty. All rights reserved.
+        <p className="text-[10px] text-muted-foreground/40 tracking-wide">
+        © 2026 Ankit Chakrabortty. All rights reserved.
   </p>
 </footer>
 
