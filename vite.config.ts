@@ -1,25 +1,21 @@
 import { defineConfig } from "vite";
-import { miaodaDevPlugin } from "miaoda-sc-plugin";
-import react from "@vitejs/plugin-react";
-import svgr from "vite-plugin-svgr";
+import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { componentTagger } from "lovable-tagger";
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    miaodaDevPlugin(),
-    svgr({
-      svgrOptions: {
-        icon: true,
-        exportType: "named",
-        namedExport: "ReactComponent",
-      },
-    }),
-  ],
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => ({
+  server: {
+    host: "::",
+    port: 8080,
+    hmr: {
+      overlay: false,
+    },
+  },
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-});
+}));

@@ -1,77 +1,61 @@
-/* stylelint-disable */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    --radius: 0.5rem;
-    --background: 230 23% 5%;
-    --foreground: 210 40% 98%;
-    --card: 230 23% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 230 23% 5%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 142 70% 50%;
-    --primary-foreground: 144 70% 10%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 142 70% 20%;
-    --accent-foreground: 142 70% 90%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 142 70% 50%;
-    --chart-1: 142 70% 50%;
-    --chart-2: 180 70% 50%;
-    --chart-3: 200 70% 50%;
-    --chart-4: 220 70% 50%;
-    --chart-5: 240 70% 50%;
-    --sidebar-background: 230 23% 5%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 142 70% 50%;
-    --sidebar-primary-foreground: 144 70% 10%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 142 70% 50%;
-    --success: 142 70% 50%;
-    --warning: 48 96% 53%;
-    --info: 199 89% 48%;
-  }
+    --background: 220 20% 4%;
+    --foreground: 120 100% 50%;
 
-  .dark {
-    --background: 230 23% 5%;
-    --foreground: 210 40% 98%;
-    --card: 230 23% 8%;
-    --card-foreground: 210 40% 98%;
-    --popover: 230 23% 5%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 142 70% 50%;
-    --primary-foreground: 144 70% 10%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 142 70% 20%;
-    --accent-foreground: 142 70% 90%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 142 70% 50%;
-    --chart-1: 142 70% 50%;
-    --chart-2: 180 70% 50%;
-    --chart-3: 200 70% 50%;
-    --chart-4: 220 70% 50%;
-    --chart-5: 240 70% 50%;
+    --card: 220 20% 6%;
+    --card-foreground: 120 100% 50%;
+
+    --popover: 220 20% 6%;
+    --popover-foreground: 120 100% 50%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 220 20% 4%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 120 30% 60%;
+
+    --accent: 180 100% 40%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 45 100% 50%;
+    --warning-foreground: 220 20% 4%;
+
+    --success: 120 100% 40%;
+    --success-foreground: 220 20% 4%;
+
+    --border: 120 50% 20%;
+    --input: 220 15% 10%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom glow effects */
+    --glow-primary: 0 0 20px hsl(120 100% 50% / 0.5), 0 0 40px hsl(120 100% 50% / 0.3);
+    --glow-secondary: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
+    --glow-destructive: 0 0 20px hsl(0 100% 50% / 0.5), 0 0 40px hsl(0 100% 50% / 0.3);
+    --glow-warning: 0 0 20px hsl(45 100% 50% / 0.5), 0 0 40px hsl(45 100% 50% / 0.3);
+
+    /* Scanline effect */
+    --scanline: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(120 100% 50% / 0.03) 2px,
+      hsl(120 100% 50% / 0.03) 4px
+    );
   }
 }
 
@@ -81,6 +65,105 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-destructive {
+    box-shadow: var(--glow-destructive);
+  }
+
+  .glow-warning {
+    box-shadow: var(--glow-warning);
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsl(120 100% 50% / 0.8), 0 0 20px hsl(120 100% 50% / 0.5);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 10px hsl(180 100% 50% / 0.8), 0 0 20px hsl(180 100% 50% / 0.5);
+  }
+
+  .scanlines {
+    position: relative;
+  }
+
+  .scanlines::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--scanline);
+    pointer-events: none;
+  }
+
+  .cyber-border {
+    border: 1px solid hsl(var(--border));
+    box-shadow: 
+      inset 0 0 20px hsl(120 100% 50% / 0.05),
+      0 0 10px hsl(120 100% 50% / 0.1);
+  }
+
+  .matrix-bg {
+    background: 
+      radial-gradient(ellipse at 50% 0%, hsl(120 100% 50% / 0.1) 0%, transparent 50%),
+      hsl(var(--background));
+  }
+}
+
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.2);
+    }
+  }
+
+  .animate-flicker {
+    animation: flicker 0.15s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.95; }
+  }
+
+  .animate-scan {
+    animation: scan 8s linear infinite;
+  }
+
+  @keyframes scan {
+    0% {
+      background-position: 0 -100vh;
+    }
+    100% {
+      background-position: 0 100vh;
+    }
   }
 }
