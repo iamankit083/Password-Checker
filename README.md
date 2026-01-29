@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+🔐 Password Strength Checker
 
-## Project info
+A real-time password strength checker that evaluates password security using entropy calculation, common security rules, and estimated crack time — all performed on the client side for privacy and speed.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🚀 Features
 
-## How can I edit this code?
+Real-time strength analysis as the user types
 
-There are several ways of editing your application.
+Entropy-based evaluation to measure password randomness
 
-**Use Lovable**
+Checks common security criteria:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Length
 
-Changes made via Lovable will be committed automatically to this repo.
+Uppercase & lowercase letters
 
-**Use your preferred IDE**
+Numbers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Special characters
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Estimated crack time display to show resistance against brute-force attacks
 
-Follow these steps:
+Client-side processing — no passwords are stored or sent to a server
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🛠️ Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+HTML
 
-# Step 3: Install the necessary dependencies.
-npm i
+CSS
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+JavaScript
 
-**Edit a file directly in GitHub**
+(Optional if applicable) TypeScript / TailwindCSS
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+📸 Demo
 
-**Use GitHub Codespaces**
+👉 Live Demo: (Add your deployed link here)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+📂 Project Structure
+password-strength-checker/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 
-## What technologies are used for this project?
+⚙️ How It Works
 
-This project is built with:
+User enters a password
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The application:
 
-## How can I deploy this project?
+Calculates entropy based on character set
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Applies predefined security rules
 
-## Can I connect a custom domain to my Lovable project?
+Estimates time required to crack the password
 
-Yes, you can!
+Displays strength feedback instantly (Weak / Medium / Strong)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🔒 Security Note
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+All analysis is performed locally in the browser
+
+No passwords are logged, stored, or transmitted
+
+Safe for testing sensitive passwords
+
+📌 Future Improvements
+
+Dictionary and leaked-password detection
+
+Visual strength meter with animations
+
+Dark mode support
+
+Mobile UI enhancements
